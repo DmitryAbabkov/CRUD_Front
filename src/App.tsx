@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
+import Update from "./Components/Update";
+import NewNotes from "./Components/NewNotes";
+import CardRender from "./Components/CardRender";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [state, setState] = useState([])
+
+    const fetchNotes = () => {
+        fetch('http://localhost:7070/notes', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => setState(data))
+            .catch(error => console.log(error));
+    };
+    useEffect(() => {
+        fetchNotes();
+    }, []);
+
+    return (
+        <div className="App">
+            <div className="update">
+                <Update update={fetchNotes}/>
+            </div>
+            <div className='cards__list'>
+                <CardRender state={state} update={fetchNotes}/>
+            </div>
+            <div className='new_note'>
+                <NewNotes update={fetchNotes}/>
+            </div>
+        </div>
+    );
 }
 
 export default App;

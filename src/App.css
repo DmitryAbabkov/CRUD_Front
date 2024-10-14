@@ -36,3 +36,88 @@
     transform: rotate(360deg);
   }
 }
+
+.card {
+  border: 1px solid black;
+  width: 300px;
+  height: 200px;
+  position: relative;
+  padding-top: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.cards__list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.App {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 200px;
+}
+
+.delete {
+  position: absolute;
+  font-size: 25px;
+  font-weight: bold;
+  color: red;
+  background-color: white;
+  top: -30px;
+  right: -10px;
+  border: 2px solid black;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+}
+
+svg {
+  enable-background:new 0 0 28 28;
+  width: 20px;
+  height: 20px;
+  color: green;
+}
+
+path {
+  fill: green;
+}
+
+.update {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.icon_update {
+  border: 2px solid black;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.textarea {
+  border: 1px solid black;
+  width: 400px;
+  min-height: 150px;
+  position: relative;
+}
+
+.text__block {
+  display: flex;
+  justify-content: center;
+}
+
+.icon__add {
+  border: 2px solid black;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  bottom: 250px;
+  left: 900px;
+  cursor: pointer;
+}
